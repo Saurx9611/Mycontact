@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --- 1. LIGHT MODE (DEFAULT) --- */
+:root {
+  --primary-color: #007aff;
+  --primary-dark: #0056b3;
+  --primary-gradient-end: #0062cc; /* Added for the button gradient */
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --text-dark: #212529;
+  --text-light: #6c757d;
+  --border-color: #dee2e6;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, var(--bg-light) 0%, #eef2f7 100%);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 24px;
+  /* Add transition for smooth color changes */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  background-color: var(--bg-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1,
+h2 {
+  color: var(--text-dark);
+  font-weight: 600;
+  padding-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.25rem;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
+}
+
+/* --- Form & Input Styles --- */
+
+input[type='text'],
+input[type='email'],
+input[type='tel'] {
+  padding: 14px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+  background-color: var(--bg-white);
+}
+
+/* --- Form Specific Layout --- */
+
+.form-container form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-container input[name='phone'],
+.form-container input[name='email'] {
+  grid-column: 1 / -1;
+}
+
+/* --- Button Styles --- */
+
+button[type='submit'] {
+  grid-column: 1 / -1;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  /* Updated to use variables */
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--primary-gradient-end)
+  );
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3);
+}
+
+button[type='submit']:hover {
+  /* Updated to use variables */
+  background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 122, 255, 0.4);
+}
+
+/* --- Search Styles --- */
+
+.search-container input {
+  width: 100%;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 32px 0;
+  transition: border-color 0.3s ease;
+}
+
+/* --- Contact List Grid --- */
+
+.contact-list {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.contact-list p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* =========================================
+--- 2. DARK MODE ---
+=========================================
+*/
+
+@media (prefers-color-scheme: dark) {
+  /* Redefine all our variables for dark mode */
+  :root {
+    --primary-color: #3391ff; /* A lighter, more vibrant blue */
+    --primary-dark: #5ea6ff;
+    --primary-gradient-end: #007aff;
+    --bg-light: #1c1c1e;   /* Dark gray for body */
+    --bg-white: #2c2c2e;   /* Lighter dark gray for containers */
+    --text-dark: #f5f5f7;  /* Off-white for main text */
+    --text-light: #a0a0a0; /* Lighter gray for secondary text */
+    --border-color: #424245;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  /* We also need to update the specific focus/shadow 
+     colors that weren't using variables */
+
+  input[type='text']:focus,
+  input[type='email']:focus,
+  input[type='tel']:focus {
+    box-shadow: 0 0 0 3px rgba(51, 145, 255, 0.25);
+  }
+
+  button[type='submit'] {
+    box-shadow: 0 2px 6px rgba(51, 145, 255, 0.3);
+  }
+
+  button[type='submit']:hover {
+    box-shadow: 0 4px 10px rgba(51, 145, 255, 0.4);
+  }
+
+  /* Make images less bright in dark mode */
+  .contact-list .card .avatar {
+    opacity: 0.85;
+  }
+}

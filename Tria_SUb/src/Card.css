@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0C4A6E;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    
+}
+
+.card .avatar {
+    width: 100%;
+    padding: 10%;
+    padding-bottom: 0;
+}
+
+.card .name {
+    margin-block: 13px;
+    color: #333333;
+    text-align: center;
+}
+
+.card .info {
+    padding: 10px;
+}
+
+.card .favorite {
+    width: 25px;
+    cursor: pointer;
+}
+
+.card .contact {
+    font-size: 0.75rem;
+    color: gray;
+    margin-block: 7px;
+    word-wrap: break-word; 
+}
+
+.card .favorite-button {
+    border: none;
+    background: transparent;
+}
+
+.card .favorite-button:active {
+    transform: none;
+    box-shadow: none;
+}
+
+.card .delete-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.card .delete-button:hover {
+  background-color: #d32f2f; /* Darker red */
+}
