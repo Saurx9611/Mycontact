@@ -191,3 +191,62 @@ hr {
     opacity: 0.85;
   }
 }
+
+/* --- View Toggle Button Styles --- */
+.view-toggle-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.view-toggle-buttons button {
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--primary-color);
+}
+
+/* Style for the INACTIVE button */
+.view-toggle-buttons button:not(.active) {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+/* Style for the ACTIVE button */
+.view-toggle-buttons button.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3);
+}
+
+/* Hover effect for inactive button */
+.view-toggle-buttons button:not(.active):hover {
+  background-color: rgba(0, 122, 255, 0.1); /* Light blue tint */
+}
+
+/* Wrapper for the views for consistent spacing */
+.add-contact-view,
+.show-contacts-view {
+  margin-top: 24px;
+}
+
+/* --- Initial View Styles --- */
+.initial-view {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-light);
+  margin-top: 24px;
+}
+
+.initial-view h2 {
+  color: var(--text-dark);
+  border-bottom: none; /* No border for this h2 */
+}
+
+.initial-view p {
+  font-size: 1.1rem;
+}
