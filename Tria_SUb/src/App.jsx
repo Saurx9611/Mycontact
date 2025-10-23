@@ -3,7 +3,7 @@ import Card from './Card.jsx';
 import './App.css';
 import initialContactsData from './initialcontact.json'; // We use this as a fallback
 
-// This is the initial state for your "add" form
+// This is the initial state for "add" form
 const initialFormState = {
   firstName: "",
   lastName: "",
