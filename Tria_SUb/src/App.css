@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* --- 1. LIGHT MODE (DEFAULT) --- */
+/* LIGHT MODE (DEFAULT) */
 :root {
   --primary-color: #007aff;
   --primary-dark: #0056b3;
-  --primary-gradient-end: #0062cc; /* Added for the button gradient */
+  --primary-gradient-end: #0062cc;
   --bg-light: #f8f9fa;
   --bg-white: #ffffff;
   --text-dark: #212529;
@@ -20,15 +20,14 @@ body {
   background: linear-gradient(135deg, var(--bg-light) 0%, #eef2f7 100%);
   color: var(--text-dark);
   margin: 0;
-  padding: 24px;
-  /* Add transition for smooth color changes */
+  padding: 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .app-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 24px 32px;
+  padding: 20px;
   background-color: var(--bg-white);
   border-radius: 16px;
   box-shadow: var(--shadow);
@@ -45,17 +44,17 @@ h2 {
 
 h1 {
   text-align: center;
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   color: var(--primary-color);
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border-bottom: 1px solid var(--border-color);
   transition: border-color 0.3s ease;
 }
 
-/* --- Form & Input Styles --- */
+/* Form & Input Styles*/
 
 input[type='text'],
 input[type='email'],
@@ -80,20 +79,15 @@ input[type='tel']:focus {
   background-color: var(--bg-white);
 }
 
-/* --- Form Specific Layout --- */
+/*  Form Specific Layout (Mobile-First) */
 
 .form-container form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
-.form-container input[name='phone'],
-.form-container input[name='email'] {
-  grid-column: 1 / -1;
-}
-
-/* --- Button Styles --- */
+/*Button Styles*/
 
 button[type='submit'] {
   grid-column: 1 / -1;
@@ -101,7 +95,6 @@ button[type='submit'] {
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  /* Updated to use variables */
   background: linear-gradient(
     45deg,
     var(--primary-color),
@@ -115,13 +108,12 @@ button[type='submit'] {
 }
 
 button[type='submit']:hover {
-  /* Updated to use variables */
   background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 122, 255, 0.4);
 }
 
-/* --- Search Styles --- */
+/*Search Styles*/
 
 .search-container input {
   width: 100%;
@@ -134,7 +126,7 @@ hr {
   transition: border-color 0.3s ease;
 }
 
-/* --- Contact List Grid --- */
+/*Contact List Grid*/
 
 .contact-list {
   margin-top: 24px;
@@ -149,28 +141,21 @@ hr {
   text-align: center;
 }
 
-/* =========================================
---- 2. DARK MODE ---
-=========================================
-*/
+/* DARK MODE*/
 
 @media (prefers-color-scheme: dark) {
-  /* Redefine all our variables for dark mode */
   :root {
-    --primary-color: #3391ff; /* A lighter, more vibrant blue */
+    --primary-color: #3391ff;
     --primary-dark: #5ea6ff;
     --primary-gradient-end: #007aff;
-    --bg-light: #1c1c1e;   /* Dark gray for body */
-    --bg-white: #2c2c2e;   /* Lighter dark gray for containers */
-    --text-dark: #f5f5f7;  /* Off-white for main text */
-    --text-light: #a0a0a0; /* Lighter gray for secondary text */
+    --bg-light: #1c1c1e;
+    --bg-white: #2c2c2e;
+    --text-dark: #f5f5f7;
+    --text-light: #a0a0a0;
     --border-color: #424245;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.3);
   }
-
-  /* We also need to update the specific focus/shadow 
-     colors that weren't using variables */
 
   input[type='text']:focus,
   input[type='email']:focus,
@@ -186,13 +171,12 @@ hr {
     box-shadow: 0 4px 10px rgba(51, 145, 255, 0.4);
   }
 
-  /* Make images less bright in dark mode */
   .contact-list .card .avatar {
     opacity: 0.85;
   }
 }
 
-/* --- View Toggle Button Styles --- */
+/*View Toggle Button Style*/
 .view-toggle-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -210,31 +194,27 @@ hr {
   border: 1px solid var(--primary-color);
 }
 
-/* Style for the INACTIVE button */
 .view-toggle-buttons button:not(.active) {
   background-color: transparent;
   color: var(--primary-color);
 }
 
-/* Style for the ACTIVE button */
 .view-toggle-buttons button.active {
   background-color: var(--primary-color);
   color: #fff;
   box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3);
 }
 
-/* Hover effect for inactive button */
 .view-toggle-buttons button:not(.active):hover {
-  background-color: rgba(0, 122, 255, 0.1); /* Light blue tint */
+  background-color: rgba(0, 122, 255, 0.1);
 }
 
-/* Wrapper for the views for consistent spacing */
 .add-contact-view,
 .show-contacts-view {
   margin-top: 24px;
 }
 
-/* --- Initial View Styles --- */
+/*Initial View Style*/
 .initial-view {
   text-align: center;
   padding: 40px 20px;
@@ -244,9 +224,39 @@ hr {
 
 .initial-view h2 {
   color: var(--text-dark);
-  border-bottom: none; /* No border for this h2 */
+  border-bottom: none;
 }
 
 .initial-view p {
   font-size: 1.1rem;
+}
+
+/*Desktop & Tablet Style*/
+
+/* We use 600px as the breakpoint */
+@media (min-width: 600px) {
+  body {
+    padding: 24px;
+  }
+
+  .app-container {
+    padding: 24px 32px;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-container form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-container input[name='phone'],
+  .form-container input[name='email'] {
+    grid-column: 1 / -1;
+  }
 }

@@ -4,7 +4,6 @@ import starFilled from "../images/star-filled.png";
 import starEmpty from "../images/star-empty.png";
 import './Card.css';
 
-// 1. Accept 'onDelete' as a prop
 export default function Card({ contact, onToggleFavorite, onDelete }) {
     
     const { firstName, lastName, phone, email, isFavorite } = contact;

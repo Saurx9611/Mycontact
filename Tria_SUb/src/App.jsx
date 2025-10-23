@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // 1. Import useEffect
+import React, { useState, useEffect } from 'react';
 import Card from './Card.jsx';
 import './App.css';
 import initialContactsData from './initialcontact.json'; // We use this as a fallback
@@ -17,14 +17,9 @@ function App() {
     const savedContacts = localStorage.getItem("contacts");
     return savedContacts ? JSON.parse(savedContacts) : initialContactsData;
   });
-
+  // Initial variables declare
   const [searchTerm, setSearchTerm] = useState('');
   const [newContact, setNewContact] = useState(initialFormState);
-  
-  // 1. STATE CHANGED from boolean to string
-  // 'initial' = show nothing
-  // 'show'    = show contact list
-  // 'add'     = show add contact form
   const [viewMode, setViewMode] = useState('initial');
 
   // Save to localStorage whenever contacts change
@@ -32,8 +27,7 @@ function App() {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
-  // --- Core Functions ---
-
+  //  Core Functions
   function toggleFavorite(id) {
     setContacts(prevContacts =>
       prevContacts.map(contact =>
@@ -56,8 +50,8 @@ function App() {
 
   function handleAddContact(e) {
     e.preventDefault();
-    if (!newContact.firstName || !newContact.email) {
-      alert('First name and email are required.');
+    if (!newContact.firstName || !newContact.email || !newContact.phone) {
+      alert('Please fill out all fields (Name, Email, and Phone).');
       return;
     }
     
@@ -65,11 +59,31 @@ function App() {
     setContacts(prevContacts => [contactToAdd, ...prevContacts]);
     setNewContact(initialFormState);
     
-    // 2. SWITCH VIEW to 'show' after adding
+    // Switch view to 'show' after adding
     setViewMode('show');
   }
 
-  // --- Filtering Logic ---
+  // View Toggle Click Handlers
+  
+  /**
+   * Toggles the 'show' view.
+   * If view is already 'show', sets to 'initial'.
+   * Otherwise, sets to 'show'.
+   */
+  function handleShowClick() {
+    setViewMode(prevMode => (prevMode === 'show' ? 'initial' : 'show'));
+  }
+
+  /**
+   * Toggles the 'add' view.
+   * If view is already 'add', sets to 'initial'.
+   * Otherwise, sets to 'add'.
+   */
+  function handleAddClick() {
+    setViewMode(prevMode => (prevMode === 'add' ? 'initial' : 'add'));
+  }
+
+  //Filtering Logic
 
   const filteredContacts = contacts.filter(contact => {
     const fullName = `${contact.firstName} ${contact.lastName}`.toLowerCase();
@@ -85,34 +99,33 @@ function App() {
     />
   ));
 
-  // --- 3. UPDATED JSX ---
+  //Main JSX
   return (
     <div className="app-container">
       <h1>My Contact List</h1>
 
-      {/* --- View Toggle Buttons (Updated) --- */}
+      {/*View Toggle Buttons*/}
       <div className="view-toggle-buttons">
         <button
-          // Set class based on viewMode
           className={viewMode === 'show' ? 'active' : ''}
-          onClick={() => setViewMode('show')}
+          //handler function
+          onClick={handleShowClick}
         >
           Show Contacts
         </button>
         <button
-          // Set class based on viewMode
           className={viewMode === 'add' ? 'active' : ''}
-          onClick={() => setViewMode('add')}
+          // handler function
+          onClick={handleAddClick}
         >
           Add Contact
         </button>
       </div>
 
-      {/* --- 4. CONDITIONAL RENDERING (Updated) --- */}
-      {/* Now shows one of THREE views */}
+      {/*CONDITIONAL RENDERING (No change needed here)*/}
       
       {viewMode === 'add' && (
-        /* --- ADD CONTACT VIEW --- */
+        /*ADD CONTACT VIEW*/
         <div className="add-contact-view">
           <div className="form-container">
             <h2>Add New Contact</h2>
@@ -152,7 +165,7 @@ function App() {
       )}
 
       {viewMode === 'show' && (
-        /* --- SHOW CONTACTS VIEW --- */
+        /*SHOW CONTACTS VIEW*/
         <div className="show-contacts-view">
           <hr />
           <div className="search-container">
@@ -172,7 +185,7 @@ function App() {
       )}
 
       {viewMode === 'initial' && (
-        /* --- 5. NEW INITIAL VIEW --- */
+        /*NEW INITIAL VIEW */
         <div className="initial-view">
           <h2>Welcome!</h2>
           <p>Select "Show Contacts" to view your list or "Add Contact" to add a new one.</p>
