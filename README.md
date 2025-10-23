@@ -122,4 +122,4 @@ Make sure you have [Node.js](https://nodejs.org/) (which includes npm) installed
 
 The live version of this project is deployed on Netlify.
 
-**Live URL:** `https://magnificent-toffee-5ccd7a.netlify.app/`
+**Live URL:** [httpsThis://magnificent-toffee-5ccd7a.netlify.app/](https://magnificent-toffee-5ccd7a.netlify.app/)
