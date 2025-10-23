@@ -5,9 +5,14 @@ This is a responsive single-page web application built with React and Vite. It a
 
 ## 📸 Demo
 
-*(Add a screenshot or GIF of your application here! Just drag and drop an image or GIF onto this file in the GitHub editor.)*
-
 ![A demo of the Contact List App showing light and dark mode, adding a contact, and searching.](demo.png)
+<img width="1919" height="876" alt="Screenshot 2025-10-23 194011" src="https://github.com/user-attachments/assets/940d6660-9ce9-404c-9f39-061562f3dc2f" />
+<img width="1918" height="870" alt="Screenshot 2025-10-23 194026" src="https://github.com/user-attachments/assets/6b5e0cd2-9519-4325-8563-752387670cfe" />
+<img width="1915" height="858" alt="Screenshot 2025-10-23 194307" src="https://github.com/user-attachments/assets/2a7673a8-9737-46c6-a5a7-96d77a8b7dce" />
+<img width="1916" height="858" alt="Screenshot 2025-10-23 194301" src="https://github.com/user-attachments/assets/6b13c0b8-f32b-4a15-9a7c-441d6b8855df" />
+<img width="1913" height="873" alt="Screenshot 2025-10-23 194246" src="https://github.com/user-attachments/assets/340c52f5-dcc8-4df7-b911-0296d71fd4f0" />
+<img width="1913" height="866" alt="Screenshot 2025-10-23 194231" src="https://github.com/user-attachments/assets/44ce3221-cd3b-4b31-b9ba-95ab2f723af6" />
+<img width="1917" height="877" alt="Screenshot 2025-10-23 194222" src="https://github.com/user-attachments/assets/ab6ed06a-6194-4ad6-b857-651f581c518d" />
 
 ## ✨ Features
 
@@ -65,3 +70,4 @@ Make sure you have [Node.js](https://nodejs.org/) (which includes npm) installed
 
 ### Deployment 
    Open your browser and visit `https://magnificent-toffee-5ccd7a.netlify.app/`
+
